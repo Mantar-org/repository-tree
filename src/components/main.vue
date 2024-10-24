@@ -28,7 +28,7 @@ export default {
 			</strong>
 		</h1>
 		<div class="blankslate blankslate-spacious blankslate-large" v-if="repoLink.length == 0">
-		  <h3>Welcome to GitHub repository tree view generater</h3>
+		  <h3>Welcome to GitHub repository tree view generator!</h3>
 		  <p>Copy your github repository link and <kbd>click</kbd> the <code>Generate</code> button, then you will see the pretty display of tree view.</p>
 		</div>
 		<tree v-else></tree>

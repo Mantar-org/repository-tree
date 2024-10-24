@@ -6,8 +6,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: process.env.NODE_ENV === 'production'
-    ? '/repository-tree/'  // Replace with your repository name
-    : '/dist',
+      ? '/repository-tree/'  // This matches your repository name
+      : '/dist/',
     filename: 'repository-tree.js'
   },
   resolveLoader: {
@@ -55,7 +55,6 @@ module.exports = {
 
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
-  // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {

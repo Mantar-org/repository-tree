@@ -1,14 +1,12 @@
-name: Deploy Vue App to GitHub Pages
-
+name: Deploy Legacy Vue App
 on:
   push:
     branches:
-      - main  # or master, depending on your default branch name
+      - main  # or master, depending on your default branch
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -16,21 +14,19 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '14' # Using an older Node version for compatibility
 
       - name: Install Dependencies
         run: npm install
 
       - name: Build
-        run: npm run build
-        env:
-          NODE_ENV: production
+        run: |
+          export NODE_ENV=production
+          npm run build
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          # Ensure we bring over the static assets
-          publish_branch: gh-pages
-          force_orphan: true  # This ensures a clean deployment
+          branch: gh-pages
+          folder: dist
+          clean: true

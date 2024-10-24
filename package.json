@@ -4,9 +4,9 @@
   "description": "Pretty display directory tree view of a GitHub repository.",
   "author": "xiaoluoboding <xiaoluoboding@gmail.com>",
   "scripts": {
-    "build": "webpack --mode production",
-    "dev": "webpack --mode development"
-  },
+      "dev": "cross-env NODE_ENV=development webpack-dev-server --hot",
+      "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    },
   "dependencies": {
     "babel-runtime": "^6.0.0",
     "github-api": "^2.3.0",

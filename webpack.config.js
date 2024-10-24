@@ -5,7 +5,9 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    publicPath: process.env.NODE_ENV === 'production'
+    ? '/repository-tree/'  // Replace with your repository name
+    : '/dist',
     filename: 'repository-tree.js'
   },
   resolveLoader: {

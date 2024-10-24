@@ -52,9 +52,7 @@ export default {
 			  <input id="repoLink" class="form-control" type="text"
 			  	placeholder="https://github.com/xiaoluoboding/repository-tree"
 			  	v-model="inputValue">
-			  <span class="input-group-button">
-				  <button type="button" class="btn btn-primary" @click="getTree">Generate</button>
-			  </span>
+
 			</form>
 		</div>
 	</div>
